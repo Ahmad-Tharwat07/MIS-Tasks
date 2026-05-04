@@ -20,7 +20,9 @@ async function createGraph(codesFilePath) {
 			fs.readFileSync(courseCodesFilePath, "utf8"),
 		);
 
+		let limit = 0;
 		for (const [code, info] of Object.entries(courses)) {
+			if (limit === 500) break;
 			const deptCode = code.split(" ");
 			const deptName =
 				subjectLookup[deptCode[0]] || "General Education";
@@ -80,6 +82,8 @@ async function createGraph(codesFilePath) {
 					);
 				}
 			}
+
+			limit++;
 		}
 
 		console.log(`==========> Graph was created`);
@@ -308,4 +312,13 @@ main();
 
 MATCH (n:Course {code: "MATH 180A"})-[r]-(m)
 RETURN n, r, m;
+*/
+
+/*
+MATCH (n)
+DETACH DELETE n
+
+MATCH ()-[r]->()
+DELETE r
+
 */
