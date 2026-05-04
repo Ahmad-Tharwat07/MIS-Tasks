@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mis-neo:
+    image: neo4j:latest
+    container_name: mis-neo
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=none
+
+  mis-mongo:
+    image: mongo:latest
+    container_name: mis-mongo
+    ports:
+      - "27017:27017" # MongoDB default port
+
+  mis-cassandra:
+    image: cassandra:latest
+    container_name: mis-cassandra
+    ports:
+      - "9042:9042" # Cassandra default port
