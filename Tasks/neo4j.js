@@ -272,29 +272,29 @@ async function getOptionalPrerequisites(courseCode) {
 
 async function main() {
 	try {
-		// 1. Create the graph, including nodes, relationships, and properties.
+		console.log("1. Create the graph, including nodes, relationships, and properties.")
 		await createGraph();
-		console.log("\n\n");
+		console.log("\n");
 
-		// 2. Attempt to delete some nodes, relationships, and properties.
+		console.log("2. Attempt to delete some nodes, relationships, and properties.")
 		await deleteRelationship("MATH 180A", "ECE 156");
 		await deleteDescriptionProperty("MATH 180A");
 		await deleteNodeByCode("MATH 180A");
-		console.log("\n\n");
+		console.log("\n");
 
-		// 3. Update the properties of some nodes and relationships.
+		console.log("3. Update the properties of some nodes and relationships.")
 		await updateCourseDescription("ECE 156", "TEST DESCRIPTION");
 		await updatePrerequisiteType("MATH 186", "ECE 156", "Mandatory");
-		console.log("\n\n");
+		console.log("\n");
 
-		// 4. Find nodes based on any condition you specify.
+		console.log("4. Find nodes based on any condition you specify.")
 		await getCourseProperties("ECE 156");
-		console.log("\n\n");
+		console.log("\n");
 
-		// 5. Find relationships based on any condition you specify.
+		console.log("5. Find relationships based on any condition you specify.")
 		await getMandatoryPrerequisites("ECE 156");
 		await getOptionalPrerequisites("ECE 156");
-		console.log("\n\n");
+		console.log("\n");
 	} catch (error) {
 		console.error("Error during execution:", error);
 	} finally {
