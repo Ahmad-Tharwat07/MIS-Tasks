@@ -11,6 +11,8 @@ session.execute("""
 """)
 session.set_keyspace('mis_school')
 
+session.execute("DROP MATERIALIZED VIEW IF EXISTS students_by_grade;")
+
 session.execute("DROP TABLE IF EXISTS students_in_course;")
 
 session.execute("""
